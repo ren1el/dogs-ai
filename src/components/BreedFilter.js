@@ -2,6 +2,13 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { setFilter } from '../reducers/filterReducer'
 import { addDogs, clearDogs } from '../reducers/dogsReducer'
+import styled from 'styled-components'
+
+const StyledBreedFilter = styled.div`
+  position: sticky;
+  z-index: 1;
+  top: 0;
+`
 
 const BreedFilter = () => {
   const dispatch = useDispatch()
@@ -15,18 +22,18 @@ const BreedFilter = () => {
   }
 
   return (
-    <div>
+    <StyledBreedFilter>
       <h2>Filter Component</h2>
       <p>Selected breed: {filter}</p>
       <select name="breeds" onChange={onFilterChanged}>
-        <option value="pug"></option>
+        <option value="pug">Select A Breed</option>
         {breeds.map(breed => (
           <option value={breed} key={breed}>
             {breed}
           </option>
         ))}
       </select>
-    </div>
+    </StyledBreedFilter>
   )
 }
 
