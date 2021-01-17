@@ -13,7 +13,6 @@ const StyledBreedFilter = styled.div`
 const BreedFilter = () => {
   const dispatch = useDispatch()
   const breeds = useSelector(state => state.breeds)
-  const filter = useSelector(state => state.filter)
 
   const onFilterChanged = event => {
     dispatch(clearDogs())
@@ -23,8 +22,6 @@ const BreedFilter = () => {
 
   return (
     <StyledBreedFilter>
-      <h2>Filter Component</h2>
-      <p>Selected breed: {filter}</p>
       <select name="breeds" onChange={onFilterChanged}>
         <option value="pug">Select A Breed</option>
         {breeds.map(breed => (

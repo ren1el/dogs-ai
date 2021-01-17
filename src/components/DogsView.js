@@ -46,6 +46,32 @@ const StyledLoading = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  .wave {
+    width: 80px;
+    animation-name: wave-animation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    display: inline-block;
+  }
+
+  @keyframes wave-animation {
+    0% {
+      transform: rotate(0deg);
+    }
+    20% {
+      transform: rotate(10deg);
+    }
+    40% {
+      transform: rotate(0deg);
+    }
+    60% {
+      transform: rotate(10deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
 `
 
 const DogsView = () => {
@@ -59,6 +85,7 @@ const DogsView = () => {
     if (inView) {
       fetchMoreDogs()
     }
+
     window.addEventListener('resize', () => setWindowSize(window.innerWidth))
   }, [inView]) //eslint-disable-line
 
@@ -83,18 +110,17 @@ const DogsView = () => {
     }
   })
 
-  console.log(dogGroups)
-
   return (
     <StyledDogView>
       <StyledGrid>
-        {dogGroups.map(group => (
-          <div>{group}</div>
+        {dogGroups.map((group, index) => (
+          <div key={index}>{group}</div>
         ))}
       </StyledGrid>
       <StyledLoading ref={ref}>
-        <img src={pawEmoji} alt="paw emoji" />
+        <img className="wave" src={pawEmoji} alt="paw emoji" />
         <p>Loading...</p>
+        <button onClick={fetchMoreDogs}>Load More Manually</button>
       </StyledLoading>
     </StyledDogView>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import dogEmoji from '../images/dog-emoji.png'
+import BreedFilter from './BreedFilter'
 
 const StyledHero = styled.section`
   width: 100%;
@@ -24,7 +25,7 @@ const StyledHero = styled.section`
 
     .emoji {
       width: 60px;
-      margin-right: 1em;
+      margin-right: 1.5em;
 
       @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
         width: 80px;
@@ -33,6 +34,7 @@ const StyledHero = styled.section`
 
     .header {
       font-size: clamp(2.5rem, 3vw, 4rem);
+      font-weight: 300;
     }
   }
 
@@ -51,6 +53,7 @@ const Hero = () => {
         </div>
         <p className="tagline">
           The internet’s largest collection of pictures of our furry friends.
+          <BreedFilter />
         </p>
       </div>
     </StyledHero>

@@ -6,9 +6,11 @@ const dogsReducer = (state = [], action) => {
       return action.data.dogs.map(dog => {
         return { url: dog, breed: action.data.breed }
       })
-
     case 'ADD_DOGS':
       console.log('adding dogs...')
+
+      //use a set to determine which new dogs from fetch
+      //are unique
       const new_dogs = action.data.dogs.map(dog => {
         return { url: dog, breed: action.data.breed }
       })
@@ -20,11 +22,9 @@ const dogsReducer = (state = [], action) => {
         unique.add(dog.url)
         return true
       })
-
     case 'CLEAR_DOGS':
       console.log('clearing dogs...')
       return []
-
     default:
       return state
   }
