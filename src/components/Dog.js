@@ -1,21 +1,28 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 
 const StyledDog = styled.div`
   width: 100%;
   position: relative;
 
-  &:hover .overlay {
-    opacity: 1;
+  .placeholder,
+  img {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 2em;
+    border-radius: ${({ theme }) => theme.borderRadius};
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .placeholder {
+    width: 100%;
+    height: 500px;
+    background-color: #eeeeee;
   }
 
   img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
     display: block;
-    margin-bottom: 1.25rem;
-    border-radius: ${({ theme }) => theme.borderRadius};
   }
 
   .overlay {
@@ -39,8 +46,12 @@ const StyledDog = styled.div`
     }
   }
 
+  &:hover .overlay {
+    opacity: 1;
+  }
+
   .overlay-btn {
-    cursor: pointer;
+    text-decoration: none;
     margin-left: 0.5em;
     background-color: #ffffff;
     border: none;
@@ -59,12 +70,28 @@ const StyledDog = styled.div`
 `
 
 const Dogs = ({ url, breed }) => {
+  const [isLoaded, setIsLoaded] = useState(false)
+
   return (
     <StyledDog>
-      <img src={url} alt={breed} />
+      {isLoaded ? null : <div className="placeholder"></div>}
+      <img
+        src={url}
+        alt={breed}
+        onLoad={() => setTimeout(() => setIsLoaded(true), 100)}
+      />
       <div className="overlay">
-        <button className="overlay-btn">🔗</button>
-        <button className="overlay-btn">📥</button>
+        <a
+          href={url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="overlay-btn"
+        >
+          🔗
+        </a>
+        {/* <a href={url} className="overlay-btn" download>
+          📥
+        </a> */}
       </div>
     </StyledDog>
   )

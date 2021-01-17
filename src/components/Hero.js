@@ -22,6 +22,7 @@ const StyledHero = styled.section`
   .heading {
     display: flex;
     align-items: center;
+    margin-bottom: 1em;
 
     .emoji {
       width: 60px;
@@ -29,6 +30,30 @@ const StyledHero = styled.section`
 
       @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
         width: 80px;
+      }
+    }
+
+    .emoji:hover {
+      animation-name: wave-animation;
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+    }
+
+    @keyframes wave-animation {
+      0% {
+        transform: rotate(0deg);
+      }
+      20% {
+        transform: rotate(10deg);
+      }
+      40% {
+        transform: rotate(0deg);
+      }
+      60% {
+        transform: rotate(10deg);
+      }
+      100% {
+        transform: rotate(0deg);
       }
     }
 
@@ -40,6 +65,7 @@ const StyledHero = styled.section`
 
   .tagline {
     font-size: 1.25rem;
+    margin-bottom: 1em;
   }
 `
 
@@ -48,13 +74,15 @@ const Hero = () => {
     <StyledHero>
       <div className="container">
         <div className="heading">
-          <img className="emoji" src={dogEmoji} alt="Dog emoji" />
+          <a href="/">
+            <img className="emoji" src={dogEmoji} alt="Dog emoji" />
+          </a>
           <h1 className="header">dogs.ai</h1>
         </div>
-        <p className="tagline">
+        <div className="tagline">
           The internet’s largest collection of pictures of our furry friends.
-          <BreedFilter />
-        </p>
+        </div>
+        <BreedFilter />
       </div>
     </StyledHero>
   )

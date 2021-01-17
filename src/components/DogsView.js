@@ -6,28 +6,12 @@ import styled from 'styled-components'
 import pawEmoji from '../images/paw-emoji.png'
 import Dog from './Dog'
 
-const StyledDogView = styled.div`
-  .grid {
-    width: 100%;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
-    grid-template-rows: masonry;
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-  }
-`
+const StyledDogView = styled.div``
 
 const StyledGrid = styled.div`
   width: 100%;
   display: grid;
-  gap: 1rem;
+  gap: 2rem;
   grid-template-columns: repeat(1, minmax(0, 1fr));
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
