@@ -6,9 +6,7 @@ import styled from 'styled-components'
 import Select from 'react-select'
 
 const StyledBreedFilter = styled.div`
-  position: sticky;
-  z-index: 1;
-  top: 0;
+  margin-bottom: 1em;
 `
 
 const BreedFilter = () => {
@@ -34,14 +32,6 @@ const BreedFilter = () => {
         isSearchable={true}
         placeholder={'Select a Breed...'}
       />
-      {/* <select name="breeds" onChange={onFilterChanged}>
-        <option value="pug">Select A Breed</option>
-        {breeds.map(breed => (
-          <option value={breed} key={breed}>
-            {breed}
-          </option>
-        ))}
-      </select> */}
     </StyledBreedFilter>
   )
 }

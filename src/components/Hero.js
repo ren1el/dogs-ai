@@ -60,6 +60,10 @@ const StyledHero = styled.section`
     .header {
       font-size: clamp(2.5rem, 3vw, 4rem);
       font-weight: 300;
+
+      a {
+        text-decoration: none;
+      }
     }
   }
 
@@ -71,18 +75,24 @@ const StyledHero = styled.section`
 
 const Hero = () => {
   return (
-    <StyledHero>
+    <StyledHero id="hero">
       <div className="container">
         <div className="heading">
           <a href="/">
             <img className="emoji" src={dogEmoji} alt="Dog emoji" />
           </a>
-          <h1 className="header">dogs.ai</h1>
+          <h1 className="header">
+            <a href="/">dogs.ai</a>
+          </h1>
         </div>
         <div className="tagline">
           The internet’s largest collection of pictures of our furry friends.
         </div>
         <BreedFilter />
+        <div>
+          Created by <a href="https://ren1el.github.io/">Reniel Ocampo</a>.
+          Powered by the <a href="https://dog.ceo/dog-api/">Dog API</a>.
+        </div>
       </div>
     </StyledHero>
   )

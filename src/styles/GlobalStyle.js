@@ -26,6 +26,10 @@ const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
   }
 
+  a {
+    color: #000000;
+  }
+
   header, main {
     margin: 0 auto;
     max-width: 1300px;
