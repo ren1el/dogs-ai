@@ -5,8 +5,8 @@ const StyledScrollTopButton = styled.div`
   position: fixed;
   width: 50px;
   height: 50px;
-  bottom: 1em;
-  right: 0.5em;
+  bottom: 2em;
+  right: 1em;
   background-color: #eeeeee;
   border-radius: 50%;
   margin: 0;
@@ -16,7 +16,7 @@ const StyledScrollTopButton = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 1.75rem;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: ${({ theme }) => theme.boxShadow};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 80px;

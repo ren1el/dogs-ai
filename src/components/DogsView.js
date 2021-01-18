@@ -5,8 +5,6 @@ import styled from 'styled-components'
 import Dog from './Dog'
 import Loading from './Loading'
 
-const StyledDogView = styled.div``
-
 const StyledGrid = styled.div`
   width: 100%;
   display: grid;
@@ -30,7 +28,7 @@ const DogsView = () => {
 
   useEffect(() => {
     window.addEventListener('resize', () => setWindowSize(window.innerWidth))
-  }, []) //eslint-disable-line
+  }, [])
 
   const fetchMoreDogs = () => {
     dispatch(addDogs(filter))
@@ -54,14 +52,14 @@ const DogsView = () => {
   })
 
   return (
-    <StyledDogView>
+    <section>
       <StyledGrid>
         {dogGroups.map((group, index) => (
           <div key={index}>{group}</div>
         ))}
       </StyledGrid>
       <Loading fetchMoreDogs={fetchMoreDogs} />
-    </StyledDogView>
+    </section>
   )
 }
 

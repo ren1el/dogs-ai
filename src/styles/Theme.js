@@ -1,8 +1,8 @@
 module.exports = {
   colors: {
     primary: '#000000',
-    secondary: '#000000',
-    tertiary: '#000000',
+    secondary: '#eeeeee',
+    tertiary: '#8B623F',
     text: '#000000',
     background: '#FFFFFF',
   },
@@ -19,4 +19,5 @@ module.exports = {
   pageWidth: '62.5rem',
   headerHeight: '6.25rem',
   footerHeight: '7.5rem',
+  boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.1)',
 }

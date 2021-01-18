@@ -5,7 +5,7 @@ import BreedFilter from './BreedFilter'
 
 const StyledHero = styled.section`
   width: 100%;
-  background-color: #eeeeee;
+  background-color: ${({ theme }) => theme.colors.secondary};
   height: 350px;
   display: flex;
   justify-content: center;
@@ -39,29 +39,12 @@ const StyledHero = styled.section`
       animation-iteration-count: 1;
     }
 
-    @keyframes wave-animation {
-      0% {
-        transform: rotate(0deg);
-      }
-      20% {
-        transform: rotate(10deg);
-      }
-      40% {
-        transform: rotate(0deg);
-      }
-      60% {
-        transform: rotate(10deg);
-      }
-      100% {
-        transform: rotate(0deg);
-      }
-    }
-
     .header {
       font-size: clamp(2.5rem, 3vw, 4rem);
-      font-weight: 300;
+      font-weight: 200;
 
       a {
+        color: ${({ theme }) => theme.colors.tertiary};
         text-decoration: none;
       }
     }
@@ -86,7 +69,7 @@ const Hero = () => {
           </h1>
         </div>
         <div className="tagline">
-          The internet’s largest collection of pictures of our furry friends.
+          The internet’s largest gallery of open-source dog pictures.
         </div>
         <BreedFilter />
         <div>

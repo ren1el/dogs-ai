@@ -8,18 +8,19 @@ const StyledDog = styled.div`
   .placeholder,
   img {
     width: 100%;
-    height: 500px;
-    border-radius: ${({ theme }) => theme.borderRadius};
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    box-shadow: ${({ theme }) => theme.boxShadow};
     margin-bottom: 1em;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+      border-radius: ${({ theme }) => theme.borderRadius};
+      height: 500px;
       margin-bottom: 2em;
     }
   }
 
   .placeholder {
-    background-color: #eeeeee;
+    background-color: ${({ theme }) => theme.colors.secondary};
   }
 
   img {
@@ -53,15 +54,8 @@ const StyledDog = styled.div`
   }
 
   .overlay-btn {
-    text-decoration: none;
-    background-color: #ffffff;
-    border: none;
-    padding: 0.5em 1em;
-    border-radius: ${({ theme }) => theme.borderRadius};
     opacity: 0.9;
     transition: opacity 0.1s ease-in-out;
-    font-size: 1rem;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
     pointer-events: auto;
   }
 
@@ -69,8 +63,8 @@ const StyledDog = styled.div`
     opacity: 1;
   }
 
-  .link-btn {
-    margin-bottom: 2em;
+  .mobile-link-btn {
+    margin: 0 0 3em 1em;
     display: inline-block;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
@@ -85,17 +79,13 @@ const Dogs = ({ url, breed }) => {
   return (
     <StyledDog>
       {isLoaded ? null : <div className="placeholder"></div>}
-      <img
-        src={url}
-        alt={breed}
-        onLoad={() => setTimeout(() => setIsLoaded(true), 100)}
-      />
+      <img src={url} alt={breed} onLoad={() => setIsLoaded(true)} />
       <div className="overlay">
         <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="overlay-btn"
+          className="btn overlay-btn"
         >
           🔗
         </a>
@@ -104,7 +94,7 @@ const Dogs = ({ url, breed }) => {
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="overlay-btn link-btn"
+        className="btn mobile-link-btn"
       >
         Link 🔗
       </a>
