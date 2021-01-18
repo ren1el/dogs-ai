@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import Dog from './Dog'
 import Loading from './Loading'
 
-const StyledDogView = styled.section`
+const StyledDogsView = styled.section`
   .grid-option {
     margin-bottom: 1em;
     display: none;
@@ -85,7 +85,7 @@ const DogsView = () => {
   })
 
   return (
-    <StyledDogView>
+    <StyledDogsView>
       <div className="grid-option">
         <label>Display Grid:</label>
         <input
@@ -111,7 +111,7 @@ const DogsView = () => {
         ))}
       </StyledGrid>
       <Loading fetchMoreDogs={fetchMoreDogs} />
-    </StyledDogView>
+    </StyledDogsView>
   )
 }
 
