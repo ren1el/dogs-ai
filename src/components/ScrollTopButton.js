@@ -7,7 +7,7 @@ const StyledScrollTopButton = styled.div`
   height: 50px;
   bottom: 2em;
   right: 1em;
-  background-color: #eeeeee;
+  background-color: ${({ theme }) => theme.colors.secondary};
   border-radius: 50%;
   margin: 0;
   padding: 0;

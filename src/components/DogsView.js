@@ -50,6 +50,7 @@ const DogsView = () => {
   const [windowSize, setWindowSize] = useState(window.innerWidth)
 
   useEffect(() => {
+    //listen for window size to calculate number of columns in masonry grid
     window.addEventListener('resize', () => setWindowSize(window.innerWidth))
   }, [])
 
