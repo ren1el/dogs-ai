@@ -5,6 +5,28 @@ import styled from 'styled-components'
 import Dog from './Dog'
 import Loading from './Loading'
 
+const StyledDogView = styled.section`
+  .grid-option {
+    margin-bottom: 1em;
+    display: none;
+
+    label {
+      font-weight: bold;
+    }
+
+    input {
+      height: 20px;
+      width: 20px;
+      margin-left: 1.5em;
+    }
+
+    @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+      display: flex;
+      align-items: center;
+    }
+  }
+`
+
 const StyledGrid = styled.div`
   width: 100%;
   display: grid;
@@ -24,6 +46,7 @@ const DogsView = () => {
   const dispatch = useDispatch()
   const dogs = useSelector(state => state.dogs)
   const filter = useSelector(state => state.filter)
+  const [gridOption, setGridOption] = useState('traditional')
   const [windowSize, setWindowSize] = useState(window.innerWidth)
 
   useEffect(() => {
@@ -34,6 +57,10 @@ const DogsView = () => {
     dispatch(addDogs(filter))
   }
 
+  const onGridOptionChanged = event => {
+    setGridOption(event.target.value)
+  }
+
   //separate each dog into groups to create a masonry grid
   let counter = 0
   const dogGroups =
@@ -41,7 +68,12 @@ const DogsView = () => {
 
   dogs.forEach(dog => {
     dogGroups[counter].push(
-      <Dog key={dog.url} url={dog.url} breed={dog.breed} />
+      <Dog
+        key={dog.url}
+        url={dog.url}
+        breed={dog.breed}
+        gridOption={gridOption}
+      />
     )
 
     if (counter >= dogGroups.length - 1) {
@@ -52,14 +84,33 @@ const DogsView = () => {
   })
 
   return (
-    <section>
+    <StyledDogView>
+      <div className="grid-option">
+        <label>Display Grid:</label>
+        <input
+          type="radio"
+          value="traditional"
+          name="grid type"
+          onChange={onGridOptionChanged}
+          checked={gridOption === 'traditional'}
+        />{' '}
+        Traditional
+        <input
+          type="radio"
+          value="masonry"
+          name="grid type"
+          onChange={onGridOptionChanged}
+          checked={gridOption === 'masonry'}
+        />{' '}
+        Masonry
+      </div>
       <StyledGrid>
         {dogGroups.map((group, index) => (
           <div key={index}>{group}</div>
         ))}
       </StyledGrid>
       <Loading fetchMoreDogs={fetchMoreDogs} />
-    </section>
+    </StyledDogView>
   )
 }
 

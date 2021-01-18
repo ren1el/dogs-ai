@@ -11,12 +11,12 @@ const dogsReducer = (state = [], action) => {
 
       //use a set to determine which new dogs from fetch
       //are unique
-      const new_dogs = action.data.dogs.map(dog => {
+      const newDogs = action.data.dogs.map(dog => {
         return { url: dog, breed: action.data.breed }
       })
       const unique = new Set()
 
-      return state.concat(new_dogs).filter(dog => {
+      return state.concat(newDogs).filter(dog => {
         if (unique.has(dog.url)) return false
 
         unique.add(dog.url)

@@ -38,14 +38,12 @@ const GlobalStyle = createGlobalStyle`
     color: #000000;
   }
 
-  header, main {
+  main {
     margin: 0 auto;
     max-width: 1300px;
     padding: 0;
     background-color: ${({ theme }) => theme.colors.background};
-  }
 
-  main {
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
         padding: 0 25px;
     }
@@ -61,7 +59,7 @@ const GlobalStyle = createGlobalStyle`
 
   .btn {
     text-decoration: none;
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.colors.background};
     border: none;
     padding: 0.5em 1em;
     border-radius: ${({ theme }) => theme.borderRadius};

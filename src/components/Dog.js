@@ -10,17 +10,14 @@ const StyledDog = styled.div`
     width: 100%;
     height: 100%;
     box-shadow: ${({ theme }) => theme.boxShadow};
+    background-color: ${({ theme }) => theme.colors.secondary};
     margin-bottom: 1em;
 
     @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
       border-radius: ${({ theme }) => theme.borderRadius};
-      height: 500px;
+      height: ${props => (props.gridOption === 'masonry' ? '100%;' : '500px;')};
       margin-bottom: 2em;
     }
-  }
-
-  .placeholder {
-    background-color: ${({ theme }) => theme.colors.secondary};
   }
 
   img {
@@ -73,28 +70,28 @@ const StyledDog = styled.div`
   }
 `
 
-const Dogs = ({ url, breed }) => {
+const Dogs = ({ url, breed, gridOption }) => {
   const [isLoaded, setIsLoaded] = useState(false)
 
   return (
-    <StyledDog>
+    <StyledDog gridOption={gridOption}>
       {isLoaded ? null : <div className="placeholder"></div>}
       <img src={url} alt={breed} onLoad={() => setIsLoaded(true)} />
       <div className="overlay">
         <a
           href={url}
+          className="btn overlay-btn"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn overlay-btn"
         >
           🔗
         </a>
       </div>
       <a
         href={url}
+        className="btn mobile-link-btn"
         target="_blank"
         rel="noopener noreferrer"
-        className="btn mobile-link-btn"
       >
         Link 🔗
       </a>

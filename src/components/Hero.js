@@ -42,6 +42,7 @@ const StyledHero = styled.section`
     .header {
       font-size: clamp(2.5rem, 3vw, 4rem);
       font-weight: 200;
+      letter-spacing: 5px;
 
       a {
         color: ${({ theme }) => theme.colors.tertiary};

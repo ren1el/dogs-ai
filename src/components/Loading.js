@@ -28,7 +28,7 @@ const Loading = ({ fetchMoreDogs }) => {
     if (inView) {
       fetchMoreDogs()
     }
-  }, [inView]) //eslint-disable-line
+  }, [inView, fetchMoreDogs])
 
   return (
     <StyledLoading ref={ref}>
