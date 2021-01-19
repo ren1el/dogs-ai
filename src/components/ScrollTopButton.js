@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 const StyledScrollTopButton = styled.div`
@@ -44,6 +44,23 @@ const StyledScrollTopButton = styled.div`
 `
 
 const ScrollTopButton = () => {
+  const [isShown, setIsShown] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      const currentScrollPos = window.pageYOffset
+      if (currentScrollPos > 500) {
+        setIsShown(true)
+      } else {
+        setIsShown(false)
+      }
+    })
+  }, [])
+
+  if (!isShown) {
+    return null
+  }
+
   return (
     <StyledScrollTopButton>
       <a href="#hero">☝️</a>
