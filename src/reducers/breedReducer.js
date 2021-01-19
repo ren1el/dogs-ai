@@ -3,7 +3,7 @@ import dogsService from '../services/dogs'
 const breedReducer = (state = [], action) => {
   switch (action.type) {
     case 'INIT_BREEDS':
-      return action.data
+      return ['all', ...action.data]
     default:
       return state
   }

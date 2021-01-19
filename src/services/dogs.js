@@ -20,6 +20,14 @@ const getAllBreeds = async () => {
 }
 
 const getNewDogsByBreed = async breed => {
+  if (breed === 'all') {
+    const response = await axios.get(
+      `https://dog.ceo/api/breeds/image/random/10`
+    )
+
+    return response.data
+  }
+
   const response = await axios.get(
     `https://dog.ceo/api/breed/${breed}/images/random/10`
   )
