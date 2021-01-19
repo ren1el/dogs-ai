@@ -2,6 +2,8 @@
 
 The internet’s largest gallery of open-source dog pictures.
 
+<img alt="demo" src="https://raw.githubusercontent.com/ren1el/dogs-ai/main/src/images/demo.jpg" />
+
 ## Installation
 
 ```python
