@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.js": "/dogs-ai/static/js/main.12896d8d.chunk.js",
+    "main.js.map": "/dogs-ai/static/js/main.12896d8d.chunk.js.map",
+    "runtime-main.js": "/dogs-ai/static/js/runtime-main.5257af6c.js",
+    "runtime-main.js.map": "/dogs-ai/static/js/runtime-main.5257af6c.js.map",
+    "static/js/2.8918f9dd.chunk.js": "/dogs-ai/static/js/2.8918f9dd.chunk.js",
+    "static/js/2.8918f9dd.chunk.js.map": "/dogs-ai/static/js/2.8918f9dd.chunk.js.map",
+    "index.html": "/dogs-ai/index.html",
+    "static/js/2.8918f9dd.chunk.js.LICENSE.txt": "/dogs-ai/static/js/2.8918f9dd.chunk.js.LICENSE.txt",
+    "static/media/dog-emoji.71fe2877.png": "/dogs-ai/static/media/dog-emoji.71fe2877.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5257af6c.js",
+    "static/js/2.8918f9dd.chunk.js",
+    "static/js/main.12896d8d.chunk.js"
+  ]
+}
